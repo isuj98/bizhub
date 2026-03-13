@@ -26,7 +26,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (t) {
       setTokenState(t);
       try {
-        fetch(`${process.env.VITE_API_URL ?? 'http://localhost:5001'}/api/me`, {
+        fetch(`${import.meta.env.VITE_API_URL ?? 'http://localhost:5001'}/api/me`, {
           headers: { Authorization: `Bearer ${t}` },
         })
           .then((r) => (r.ok ? r.json() : null))
